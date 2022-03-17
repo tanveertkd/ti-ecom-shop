@@ -1,0 +1,12 @@
+.hero {
+    background-color: var(--primary-bg);
+    display: flex;
+    justify-content: space-around;align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.hero-cta-btn-link {
+    color: var(--primary-bg);
+    font-size: larger;
+}
