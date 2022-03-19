@@ -1,0 +1,17 @@
+.showcase-body {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-parent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem;
+    flex-wrap: wrap;
+}
+
+.card-image {
+    width: fit-content;
+}
