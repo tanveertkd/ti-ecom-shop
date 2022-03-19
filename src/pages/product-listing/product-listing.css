@@ -1,0 +1,18 @@
+.product-listing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-listing-body {
+    display: flex;
+    background-color: var(--color-text-lighter-grey);
+}
+
+.product-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto 1rem;
+}

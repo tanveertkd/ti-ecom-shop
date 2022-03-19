@@ -1,0 +1,49 @@
+.product-card {
+    margin: 1rem 1rem 1rem 0;
+    border: 1px solid var(--color-grey-light);
+    border-radius: 0.4rem;
+    background-color: var(--primary-bg);
+    cursor: pointer;
+    max-width: 20rem;
+}
+
+.card-top-half {
+    text-align: center;
+    position: relative;
+}
+
+.product-fav-icn {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    border: 1px solid var(--color-grey);
+    border-radius: 50%;
+    padding: 0.25rem;
+}
+
+.fav-active {
+    color: var(--color-red-accent);
+    border: 1px solid var(--color-red-accent);
+    background-color: var(--primary-bg);
+}
+
+.product-body-asset {
+    padding: 1.5rem;
+    background-color: var(--color-grey-light);
+    width: 35%;
+}
+
+.card-top-half-text {
+    padding: 0.25rem;
+}
+
+.product-item-cta {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    background-color: var(--color-blue);
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--color-idle);
+}
