@@ -71,6 +71,7 @@ const Filter = () => {
                                 name="protective-eq"
                                 value="Protective Equipment"
                                 checked={p_eq}
+                                // onChange={() => dispatch({ type: 'CATEGORY', payload: {p_eq: true}})}
                                 onChange={() => dispatch({ type: 'P_EQ' })}
                             />
                             Protective Equipment

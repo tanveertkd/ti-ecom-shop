@@ -16,7 +16,7 @@ const productReducer = (state, action) => {
                 ...state,
                 filters: {...state.filters, sortBy: action.type}
             }
-
+            
         case "P_EQ":
             return {
                 ...state,
@@ -82,8 +82,8 @@ const productReducer = (state, action) => {
                         t_eq: false,
                         t_apparel: false,
                     },
-                    rating: "1",
-                    priceRangeValue: 10000,
+                    rating: "0",
+                    priceRangeValue: 5000,
                     excludeOutOfStock: false,
                 }
             }

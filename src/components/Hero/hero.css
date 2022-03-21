@@ -1,12 +1,20 @@
 .hero {
-    background-color: var(--primary-bg);
+    background-color: var(--color-hover-grey);
     display: flex;
-    justify-content: space-around;align-items: center;
+    justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
     padding: 1rem;
+    color: var(--primary-bg);
 }
 
-.hero-cta-btn-link {
-    color: var(--primary-bg);
-    font-size: larger;
+.hero-cta {
+    color: var(--color-grey);
+    background-color: var(--color-idle);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.hero-cta:hover {
+    box-shadow: 5px 5px 5px var(--color-hover-grey);
 }

@@ -1,18 +1,20 @@
 .product-listing {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
 }
 
 .product-listing-body {
     display: flex;
     background-color: var(--color-text-lighter-grey);
+    width: 100%;
 }
 
 .product-card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin: auto 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 1rem;
 }

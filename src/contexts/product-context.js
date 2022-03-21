@@ -14,7 +14,7 @@ const ProductProvider = ({children}) => {
                 t_eq: false,
                 t_apparel: false,
             },
-            rating: "1",
+            rating: "0",
             priceRangeValue: 5000,
             excludeOutOfStock: false,
         }

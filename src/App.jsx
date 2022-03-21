@@ -1,13 +1,18 @@
 import "./App.css";
+
+// Components Import
 import { Navbar } from "./components/Navbar/Navbar";
-import { Hero } from "./components/Hero/Hero";
-import { Showcase } from "./components/Showcase/Showcase";
 import { Footer } from "./components/Footer/Footer";
+import { SignIn } from "./components/Authentication/signin";
+import { SignUp } from "./components/Authentication/signup";
+import { Routes, Route } from "react-router-dom"
 
-import {Routes, Route} from "react-router-dom"
-
+//Pages Import
 import { Home } from "./pages/home/home";
-import {ProductListing} from "./pages/product-listing/product-listing"
+import { ProductListing } from "./pages/product-listing/product-listing"
+
+//Mockman
+import Mockman from "mockman-js"; 
 
 function App() {
   return (
@@ -18,8 +23,11 @@ function App() {
       <Footer /> */}
       <Navbar />
       <Routes>
+        <Route path="mockman" element={ <Mockman /> } />
         <Route path="/" element={ <Home /> } />
         <Route path="products" element={ <ProductListing /> } />
+        <Route path="login" element={ <SignIn /> } />
+        <Route path="signup" element={ <SignUp /> } />
       </Routes>
       <Footer />
     </div>

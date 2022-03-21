@@ -1,12 +1,17 @@
+import { Link } from 'react-router-dom';
+
 import './navbar.css';
+
 const Navbar = () => {
-    return(
+    return (
         <div>
             <nav className="nav-main">
                 {/*  Nav left */}
                 <ul className="nav-main-left nav-main-ul">
                     <li className="nav-main-li">
-                        <a href="./index.html" className="nav-main-item">TI</a>
+                        <Link to="/" className="nav-main-item">
+                            TI
+                        </Link>
                     </li>
                 </ul>
 
@@ -15,8 +20,12 @@ const Navbar = () => {
                     <li className="nav-main-li">
                         <label for="nav-main-search" className="nav-item-search">
                             <i className="fa-solid fa-magnifying-glass nav-main-middle-icn"></i>
-                            <input className="nav-item-search-input" type="text" placeholder="Looking for something?"
-                                name="nav-search" />
+                            <input
+                                className="nav-item-search-input"
+                                type="text"
+                                placeholder="Looking for something?"
+                                name="nav-search"
+                            />
                         </label>
                     </li>
                 </ul>
@@ -24,25 +33,29 @@ const Navbar = () => {
                 {/* Nav right */}
                 <ul className="nav-main-right nav-main-ul">
                     <li className="nav-main-li">
-                        <a href="./routes/product.html" className="nav-main-item nav-btn-login">Products</a>
+                        <Link to="/products" className="nav-main-item nav-btn-login">
+                            Products
+                        </Link>
                     </li>
                     <li className="nav-main-li">
-                        <a href="./routes/login.html" className="nav-main-item nav-btn-login">Login</a>
+                        <Link to="/login" className="nav-main-item nav-btn-login">
+                            Login
+                        </Link>
                     </li>
                     <li className="nav-main-li">
-                        <a href="./routes/cart.html" className="nav-main-item">
+                        <Link to="/products" className="nav-main-item">
                             <i className="fa-solid fa-cart-shopping"></i>
-                        </a>
+                        </Link>
                     </li>
                     <li className="nav-main-li">
-                        <a href="./routes/wishlist.html" className="nav-main-item">
+                        <Link to="/products" className="nav-main-item">
                             <i className="fa-regular fa-heart"></i>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </nav>
         </div>
-    )
-}
+    );
+};
 
-export {Navbar}
+export { Navbar };

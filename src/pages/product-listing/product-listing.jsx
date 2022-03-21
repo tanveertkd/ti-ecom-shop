@@ -3,10 +3,8 @@ import { useEffect } from "react";
 import { Filter } from "../../components/Filter/Filter";
 import { ProductItem } from "../../components/ProductItem/ProductItem";
 import { useProducts } from "../../contexts/product-context";
-import { getPriceRange } from "../../utils/get-price-range";
-import { getProductCategory } from "../../utils/get-product-category";
-import { getProductRating } from "../../utils/get-product-rating";
-import { getSortedProducts } from "../../utils/sort-products";
+
+import { getSortedProducts, getProductCategory, getProductRating, getPriceRange } from "../../utils"
 
 import "./product-listing.css";
 
@@ -31,7 +29,7 @@ const ProductListing = () => {
     const sorted = getSortedProducts( state.data, sortBy );
 
     const categoryFilter = getProductCategory(sorted, category);
-    
+
     const priceRangeFilter = getPriceRange(categoryFilter, priceRangeValue);
 
     const productRatingFilter = getProductRating(priceRangeFilter, rating);
@@ -51,4 +49,4 @@ const ProductListing = () => {
     )
 }
 
-export {ProductListing};
+export { ProductListing };
