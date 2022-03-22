@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
-import { CategoryProvider } from "./contexts/categoriesContext";
+import { CategoryProvider } from "./contexts/categories-context";
 import { BrowserRouter } from "react-router-dom";
 import { ProductProvider } from "./contexts/product-context";
 
