@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Filter } from "../../components/Filter/Filter";
 import { ProductItem } from "../../components/ProductItem/ProductItem";
-import { useProducts } from "../../contexts/product-context";
+import { useProducts } from "../../contexts";
 
 import { getSortedProducts, getProductCategory, getProductRating, getPriceRange } from "../../utils"
 

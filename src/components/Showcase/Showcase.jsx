@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useCategories } from "../../contexts/categories-context";
+import { useCategories } from "../../contexts";
 
 import './showcase.css';
 

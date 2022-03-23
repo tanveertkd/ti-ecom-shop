@@ -55,7 +55,7 @@ const Navbar = () => {
                         )}
                     </li>
                     <li className="nav-main-li">
-                        <Link to="/products" className="nav-main-item">
+                        <Link to="/cart" className="nav-main-item">
                             <i className="fa-solid fa-cart-shopping"></i>
                         </Link>
                     </li>

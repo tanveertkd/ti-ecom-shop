@@ -10,18 +10,15 @@ import { Routes, Route } from "react-router-dom"
 //Pages Import
 import { Home } from "./pages/home/home";
 import { ProductListing } from "./pages/product-listing/product-listing"
+import { Cart } from "./pages/cart/cart";
 
 //Mockman
-import Mockman from "mockman-js"; 
-import { SignInSignUp } from "./pages/authentication/signin-signup";
+import Mockman from "mockman-js";
+import { ProtectedRoutes } from "./routes/ProtectedRoutes";
 
 function App() {
   return (
     <div className="App">
-      {/* <Navbar />
-      <Hero />
-      <Showcase />
-      <Footer /> */}
       <Navbar />
       <Routes>
         <Route path="mockman" element={ <Mockman /> } />
@@ -31,6 +28,11 @@ function App() {
         <Route path="signin" element={ <SignIn /> } />
         {/* <Route path="login" element={ <SignInSignUp />}  /> */}
         <Route path="signup" element={ <SignUp /> } />
+        
+        {/* Protected Routes */}
+        <Route path="/" element={<ProtectedRoutes />}>
+          <Route path="/cart" element={ <Cart /> }/>
+        </Route>
       </Routes>
       <Footer />
     </div>

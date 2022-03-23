@@ -1,21 +1,38 @@
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts';
+import { useCart } from '../../contexts/cart-context';
+
 import './product-item.css';
 
 const ProductItem = ({ product }) => {
+    const { auth } = useAuth();
+    const { addToCartHandler } = useCart();
+    const navigate = useNavigate();
+
     return (
-        <div class="product-card" key={product.id}>
+        <div className="product-card" key={product.id}>
             <div>
-                <div class="card-top-half">
-                    <i class="fas fa-regular fa-heart product-fav-icn fav-active"></i>
+                <div className="card-top-half">
+                    <i className="fas fa-regular fa-heart product-fav-icn fav-active"></i>
                     <div className="product-asset-container">
-                        <img src={product.asset} alt="product body asset" class="product-body-asset" />
+                        <img
+                            src={product.asset}
+                            alt="product body asset"
+                            className="product-body-asset"
+                        />
                     </div>
-                    
-                    <div class="card-top-half-text">
-                        <p class="product-item-title">{product.title}</p>
-                        <p class="product-item-price">Rs {product.price}</p>
+
+                    <div className="card-top-half-text">
+                        <p className="product-item-title">{product.title}</p>
+                        <p className="product-item-price">Rs {product.price}</p>
                     </div>
                 </div>
-                <button class="product-item-cta">View Product</button>
+                <button
+                    className="product-item-cta"
+                    onClick={auth ? () => addToCartHandler(product) : () => navigate('/login')}
+                >
+                    Add To Cart
+                </button>
             </div>
         </div>
     );
