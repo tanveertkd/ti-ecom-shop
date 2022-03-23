@@ -19,4 +19,4 @@ const signupService = async (firstName, lastName, email, password) => {
     }
 }
 
-export { signupService }
+export { signupService };

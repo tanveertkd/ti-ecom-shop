@@ -13,6 +13,7 @@ import { ProductListing } from "./pages/product-listing/product-listing"
 
 //Mockman
 import Mockman from "mockman-js"; 
+import { SignInSignUp } from "./pages/authentication/signin-signup";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
         <Route path="/" element={ <Home /> } />
         <Route path="products" element={ <ProductListing /> } />
         <Route path="login" element={ <SignIn /> } />
+        <Route path="signin" element={ <SignIn /> } />
+        {/* <Route path="login" element={ <SignInSignUp />}  /> */}
         <Route path="signup" element={ <SignUp /> } />
       </Routes>
       <Footer />

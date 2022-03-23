@@ -1,10 +1,22 @@
-// import "./signin-signup.css"
-
 import { SignIn } from "../../components/Authentication/signin";
 
+import { useNavigate } from 'react-router-dom';
+
 const SignInSignUp = () => {
+
+    const navigate = useNavigate();
+
+    const getUserAuthState = () => localStorage.getItem('AUTH_TOKEN') ? true : false;
+    
     return(
-        <SignIn />
+        
+        <div>
+            { (!getUserAuthState)
+            ? navigate('signin')
+            : navigate('/') }
+        </div>
+
+        
     );
 }
 

@@ -73,7 +73,7 @@ const SignIn = () => {
                         </button>
                         <button
                             className="btn form-btn"
-                            type="button"
+                            type="submit"
                             onClick={() =>
                                 setUserInput({
                                     email: 'adarshbalika@gmail.com',
