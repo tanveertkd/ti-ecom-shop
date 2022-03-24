@@ -55,6 +55,10 @@
     color: var(--primary-bg);
 }
 
+.item-qty-btn:hover {
+    cursor: pointer;
+}
+
 .qty {
     padding: 0.25rem 0.75rem;
     font-size: 1rem;
