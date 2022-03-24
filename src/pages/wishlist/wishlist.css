@@ -1,0 +1,12 @@
+.wishlist-header {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .wishlist-header {
+        padding: 1.5rem 0.5rem 0 0.5rem; 
+    }
+}

@@ -13,6 +13,7 @@
 .sidebar-header {
     font-size: 1.25rem;
     margin-bottom: 1rem;
+    text-align: start;
 }
 
 .btn-clr:hover {

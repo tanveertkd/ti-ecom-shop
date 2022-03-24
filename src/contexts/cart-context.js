@@ -35,31 +35,16 @@ const CartProvider = ({ children }) => {
     };
 
     // Update item quantity handler
-    /**
-     * REFACTOR THIS CODE
-     */
     const updateHandler = async (product, type) => {
         if(product.qty === 1 && type === "decrement"){
             handleDelete(product._id);
-        }else{
-            if (product.qty >= 1 && type === "increment") {
-                const response = await updateCartItemQty(AUTH_TOKEN, product._id, type);
-                if (response.status === 200) {
-                    setCartItems((existingItems) => ({
-                        ...existingItems,
-                        items: response.data.cart,
-                    }));
-                }
-            }
-    
-            if (product.qty >= 1 && type === "decrement") {
-                const response = await updateCartItemQty(AUTH_TOKEN, product._id, type);
-                if (response.status === 200) {
-                    setCartItems((existingItems) => ({
-                        ...existingItems,
-                        items: response.data.cart,
-                    }));
-                }
+        } else {
+            const response = await updateCartItemQty(AUTH_TOKEN, product._id, type);
+            if (response.status === 200) {
+                setCartItems((existingItems) => ({
+                    ...existingItems,
+                    items: response.data.cart,
+                }));
             }
         }
     };

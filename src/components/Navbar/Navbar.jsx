@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../contexts';
+import { useAuth, useCart, useWishlist } from '../../contexts';
 
 import './navbar.css';
 
 const Navbar = () => {
     const { auth, signOutHandler } = useAuth();
+    const { cartItems } = useCart();
+    const { wishlistItems } = useWishlist();
+
+    const itemsInCart = cartItems.items?.length;
+    const itemsInWishlist = wishlistItems.items?.length;
 
     return (
         <div>
@@ -55,13 +60,17 @@ const Navbar = () => {
                         )}
                     </li>
                     <li className="nav-main-li">
-                        <Link to="/cart" className="nav-main-item">
-                            <i className="fa-solid fa-cart-shopping"></i>
+                        <Link to="/cart" className="nav-main-item badge">
+                            <i className="fa-solid fa-cart-shopping nav-right-icn"></i>
+                            {itemsInCart > 0 && <span className="badge-info">{itemsInCart}</span>}
                         </Link>
                     </li>
                     <li className="nav-main-li">
-                        <Link to="/products" className="nav-main-item">
-                            <i className="fa-regular fa-heart"></i>
+                        <Link to="/wishlist" className="nav-main-item badge">
+                            <i className="fa-regular fa-heart nav-right-icn"></i>
+                            {itemsInWishlist > 0 && (
+                                <span className="badge-info">{itemsInWishlist}</span>
+                            )}
                         </Link>
                     </li>
                 </ul>

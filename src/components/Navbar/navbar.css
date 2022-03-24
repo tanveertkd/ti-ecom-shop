@@ -71,6 +71,28 @@
     color: var(--primary-bg);
 }
 
+.nav-right-icn {
+    position: relative;
+    font-size: 1.5rem;
+    padding: 0.5rem 0.15rem;
+}
+
+.badge .badge-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-bg);
+    position: absolute;
+    top: -0.95rem;
+    right: -0.3rem;
+    background-color: var(--color-highlight-orange);
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.1rem
+}
+
+
 /* Media Queries */
 
 @media screen and (max-width: 768px) {
