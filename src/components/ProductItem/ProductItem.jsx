@@ -6,13 +6,14 @@ import './product-item.css';
 
 const ProductItem = ({ product }) => {
     const { auth } = useAuth();
-    const { addToCartHandler } = useCart();
-    const { wishlistItems, addToWishlistHandler } = useWishlist();
+    const { cartItems, addToCartHandler, updateHandler } = useCart();
+    const { wishlistItems, addToWishlistHandler, removeFromWishlistHandler } = useWishlist();
     const navigate = useNavigate();
 
     const { _id, asset, title, price, discount } = product;
 
-    const check = wishlistItems.items.find((item) => item._id === product._id);
+    const checkWishlist = wishlistItems.items.find((item) => item._id === _id);
+    const checkCart = cartItems.items.find((item) => item._id === _id);
 
     return (
         <div className="product-card" key={_id}>
@@ -20,11 +21,15 @@ const ProductItem = ({ product }) => {
                 <div className="card-top-half">
                     <i
                         className={
-                            check
+                            checkWishlist
                                 ? 'fas fa-regular fa-heart product-fav-icn fav-active'
                                 : 'far fa-regular fa-heart product-fav-icn fav-active'
                         }
-                        onClick={() => addToWishlistHandler(product)}
+                        onClick={
+                            !checkWishlist
+                                ? () => addToWishlistHandler(product)
+                                : () => removeFromWishlistHandler(_id)
+                        }
                     ></i>
                     <div className="product-asset-container">
                         <img src={asset} alt="product body asset" className="product-body-asset" />
@@ -41,7 +46,13 @@ const ProductItem = ({ product }) => {
                 </div>
                 <button
                     className="product-item-cta"
-                    onClick={auth ? () => addToCartHandler(product) : () => navigate('/login')}
+                    onClick={
+                        auth
+                            ? checkCart
+                                ? () => updateHandler(product, 'increment')
+                                : () => addToCartHandler(product)
+                            : () => navigate('/login')
+                    }
                 >
                     Add To Cart
                 </button>

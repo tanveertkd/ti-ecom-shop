@@ -9,22 +9,24 @@ const WishlistProvider = ({ children }) => {
     const { auth } = useAuth();
 
     const addToWishlistHandler = async (product) => {
-        try {
-            const response = await addItemToWishlist(AUTH_TOKEN, product);
-            console.log('from add context:', response);
-            if (response.status === 201) {
-                setWishlistItems((existingItems) => ({
-                    ...existingItems,
-                    items: response.data.wishlist,
-                }));
-            } else {
-                setWishlistItems((existingItems) => ({
-                    ...existingItems,
-                    items: [],
-                }));
+        const check = wishlistItems.items.find(item => item._id === product._id);
+        if(!check){
+            try {
+                const response = await addItemToWishlist(AUTH_TOKEN, product);
+                if (response.status === 201) {
+                    setWishlistItems((existingItems) => ({
+                        ...existingItems,
+                        items: response.data.wishlist,
+                    }));
+                } else {
+                    setWishlistItems((existingItems) => ({
+                        ...existingItems,
+                        items: [],
+                    }));
+                }
+            } catch (error) {
+                throw new Error("Couldn't add to wishlist.", error);
             }
-        } catch (error) {
-            throw new Error("Couldn't add to wishlist.", error);
         }
     };
 
@@ -52,7 +54,6 @@ const WishlistProvider = ({ children }) => {
                 if (auth) {
                     try {
                         const response = await getWishlistItems(AUTH_TOKEN);
-                        console.log(response);
                         if (response.status === 200) {
                             setWishlistItems((existingItems) => ({
                                 ...existingItems,
@@ -71,8 +72,6 @@ const WishlistProvider = ({ children }) => {
             })(),
         [auth, AUTH_TOKEN],
     );
-
-    console.log('From context: ', wishlistItems);
 
     return (
         <WishlistContext.Provider
