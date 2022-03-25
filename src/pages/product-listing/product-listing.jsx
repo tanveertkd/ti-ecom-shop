@@ -54,8 +54,10 @@ const ProductListing = () => {
                 
                 <div className="secondary-container">
                     <div class="sidebar-responsive" onClick={ () => toggleSidebar() }>
-                        Filters
-                        <i class="fas fa-regular fa-filter filter-icn"></i>
+                        <span>
+                            Filters
+                            <i class="fas fa-regular fa-filter filter-icn"></i>
+                        </span>
                     </div>
                     <div className="product-card-container">
                         {productRatingFilter?.map((product) => (

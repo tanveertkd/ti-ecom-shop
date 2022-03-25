@@ -59,3 +59,11 @@
     border-bottom-right-radius: 0.4rem;
     border-bottom-left-radius: 0.4rem;
 }
+
+@media screen and (max-width: 768px) {
+
+    .product-card {
+        background-color: var(--primary-bg);
+    }
+    
+}
