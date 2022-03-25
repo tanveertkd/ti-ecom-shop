@@ -30,11 +30,9 @@ const AuthProvider = ({ children }) => {
         event.preventDefault();
 
         const {firstName, lastName, email, password} = userInput; 
-        console.log("created acc with: ", firstName, email, password)
         try{
             const responseToken = await signupService(firstName, lastName, email, password);
             localStorage.setItem('AUTH_TOKEN', responseToken);
-            console.log("created acc with: ", firstName, email, password)
             setAuth(true);
             navigate('/')
         } catch(error) {
