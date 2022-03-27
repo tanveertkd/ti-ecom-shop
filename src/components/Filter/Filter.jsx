@@ -21,6 +21,8 @@ const Filter = () => {
                 </li>
             </ul>
 
+            <hr />
+
             {/* <!-- Section 2 --> */}
 
             <ul className="nav-sidebar-ul">
@@ -58,6 +60,8 @@ const Filter = () => {
                     </div>
                 </li>
             </ul>
+
+            <hr />
 
             {/* <!-- Section 3 --> */}
             <ul className="nav-sidebar-ul">
@@ -109,6 +113,8 @@ const Filter = () => {
                     </div>
                 </li>
             </ul>
+
+            <hr />
 
             {/* <!-- Section 4 --> */}
             <ul className="nav-sidebar-ul">
@@ -183,6 +189,8 @@ const Filter = () => {
                     </div>
                 </li>
             </ul>
+            
+            <hr />
 
             {/* <!-- Section 5 --> */}
             <ul className="nav-sidebar-ul">
@@ -210,6 +218,8 @@ const Filter = () => {
                     </div>
                 </li>
             </ul>
+            
+            <hr />
 
             {/* <!-- Nav Sidebar Ends --> */}
         </div>

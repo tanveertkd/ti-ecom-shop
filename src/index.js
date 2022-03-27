@@ -3,22 +3,27 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
-import { CategoryProvider } from "./contexts/categories-context";
 import { BrowserRouter } from "react-router-dom";
-import { ProductProvider } from "./contexts/product-context";
+import { CategoryProvider, ProductProvider, AuthProvider, CartProvider, WishlistProvider } from "./contexts";
 
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <CategoryProvider>
-      <ProductProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ProductProvider>
-    </CategoryProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <CategoryProvider>
+          <CartProvider>
+            <WishlistProvider>
+              <ProductProvider>
+                <App />
+              </ProductProvider>
+            </WishlistProvider>
+          </CartProvider>
+        </CategoryProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

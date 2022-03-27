@@ -1,0 +1,9 @@
+.wishlist-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-card:hover {
+    box-shadow: 0 0 10px var(--color-light-grey);
+}

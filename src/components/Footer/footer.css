@@ -4,6 +4,7 @@
     grid-template-columns: repeat(3, 1fr);
     background-color: var(--color-grey);
     color: var(--primary-bg);
+    margin-top: auto;
 }
 
 .footer-ul {
