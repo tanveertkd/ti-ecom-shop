@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const SignInSignUp = () => {
@@ -12,6 +13,7 @@ const SignInSignUp = () => {
             { (!getUserAuthState)
             ? navigate('signin')
             : navigate('/') }
+            <Toaster />
         </div>
 
         

@@ -11,14 +11,16 @@ const Cart = () => {
         <div class="cart-parent">
             <div class="cart-header">My Cart</div>
             <div class="cart-body-container">
+            <Toaster />
                 {cartItems.items.length > 0 ? (
                     <div class="cart-body">
                         <CartItem />
                         <CartSummary />
-                        <Toaster />
                     </div>
                 ) : (
-                    <div>Your cart is empty!</div>
+                    <div>
+                        Your cart is empty!{' '}
+                    </div>
                 )}
             </div>
         </div>

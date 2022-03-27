@@ -50,6 +50,7 @@ const CartProvider = ({ children }) => {
     const updateHandler = async (product, type) => {
         if(product.qty === 1 && type === "decrement"){
             handleDelete(product._id);
+            (() => toast.success(`Item removed from your cart.`))();
         } else {
             const response = await updateCartItemQty(AUTH_TOKEN, product._id, type);
             if (response.status === 200) {
