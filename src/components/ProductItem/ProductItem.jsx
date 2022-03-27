@@ -21,9 +21,11 @@ const ProductItem = ({ product }) => {
                 <div className="card-top-half">
                     <i
                         className={
-                            checkWishlist
+                            auth
+                            ? checkWishlist
                                 ? 'fas fa-regular fa-heart product-fav-icn fav-active'
                                 : 'far fa-regular fa-heart product-fav-icn fav-active'
+                            : 'far fa-regular fa-heart product-fav-icn fav-active'
                         }
                         onClick={
                             auth
@@ -57,7 +59,7 @@ const ProductItem = ({ product }) => {
                             : () => navigate('/login')
                     }
                 >
-                    {auth && !checkCart ? 'Add To Cart' : 'Go To Cart'}
+                    {auth && checkCart ? 'Go To Cart' : 'Add To Cart'}
                 </button>
             </div>
         </div>
