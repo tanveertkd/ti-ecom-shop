@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { signInService, signupService } from '../services';
 
@@ -20,7 +21,9 @@ const AuthProvider = ({ children }) => {
             localStorage.setItem('AUTH_TOKEN', responseToken);
             setAuth(true);
             navigate('/');
+            (()=>toast.success("Logged In!"))();
         } catch (error) {
+            (()=>toast.error("Couldn't log in!"))();
             console.log("Couldn't get token: ", error);
         }
     };
@@ -34,8 +37,11 @@ const AuthProvider = ({ children }) => {
             const responseToken = await signupService(firstName, lastName, email, password);
             localStorage.setItem('AUTH_TOKEN', responseToken);
             setAuth(true);
-            navigate('/')
+            signInHandler(event, userInput);
+            navigate('/');
+            (()=>toast.success("Account created successfully!"))();
         } catch(error) {
+            (()=>toast.error("Couldn't create account."))();
             console.log("Couldn't get token: ", error);
         } 
     }
@@ -43,6 +49,7 @@ const AuthProvider = ({ children }) => {
     // Handler for signout
     const signOutHandler = () => {
         localStorage.removeItem('AUTH_TOKEN');
+        (() => toast.success('Logged out successfully.'))();
         setAuth(() => false);
     }
 

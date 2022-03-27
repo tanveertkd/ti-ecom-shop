@@ -2,6 +2,8 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { getCartItems } from '../services';
 import { useAuth } from './index';
 
+import toast from 'react-hot-toast';
+
 import { addItemToCart, deleteItemFromCart, updateCartItemQty } from '../services/cart-services';
 
 const CartContext = createContext();
@@ -11,26 +13,36 @@ const CartProvider = ({ children }) => {
     const AUTH_TOKEN = localStorage.getItem('AUTH_TOKEN');
 
     const addToCartHandler = async (product) => {
-        try {
-            const response = await addItemToCart(AUTH_TOKEN, product);
-            if (response.status === 201) {
-                setCartItems((existingItems) => ({
-                    ...existingItems,
-                    items: response.data.cart,
-                }));
+        const check = cartItems.items.find(item => item._id === product._id);
+        
+        if(!check){
+            try {
+                const response = await addItemToCart(AUTH_TOKEN, product);
+                if (response.status === 201) {
+                    setCartItems((existingItems) => ({
+                        ...existingItems,
+                        items: response.data.cart,
+                    }));
+                    (() => toast.success(`${product.title} has been added to your cart!`))();
+                }
+            } catch (error) {
+                (() => toast.error(`${product.title} cound not be added to your cart.`))();
+                throw new Error("Couldn't add item to cart.", error);
             }
-        } catch (error) {
-            throw new Error("Couldn't add item to cart.", error);
         }
     };
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id, title) => {
         const response = await deleteItemFromCart(AUTH_TOKEN, id);
         if (response.status === 200) {
             setCartItems((existingItems) => ({
                 ...existingItems,
                 items: response.data.cart,
             }));
+            (() => toast.success(`Item removed from your cart.`))();
+        } else {
+            (() => toast.error(`${title} caould not be removed your cart.`))();
+            throw new Error("Couldn't delete item from cart");
         }
     };
 
@@ -45,6 +57,7 @@ const CartProvider = ({ children }) => {
                     ...existingItems,
                     items: response.data.cart,
                 }));
+                (() => toast.success(`${product.title}'s quantity updated.`))();
             }
         }
     };

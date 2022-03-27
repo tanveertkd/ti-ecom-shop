@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/';
 
@@ -94,6 +95,8 @@ const SignIn = () => {
                     </Link>
                 </div>
             </div>
+            
+            <Toaster />
         </div>
 
         // <!-- Login body ends -->

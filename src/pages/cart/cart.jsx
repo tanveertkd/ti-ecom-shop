@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import { CartItem } from '../../components/CartItem/CartItem';
 import { CartSummary } from '../../components/CartSummary/CartSummary';
 import { useCart } from '../../contexts';
@@ -14,6 +15,7 @@ const Cart = () => {
                     <div class="cart-body">
                         <CartItem />
                         <CartSummary />
+                        <Toaster />
                     </div>
                 ) : (
                     <div>Your cart is empty!</div>

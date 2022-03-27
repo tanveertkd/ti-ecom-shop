@@ -7,10 +7,17 @@
     margin: auto 5rem 1rem auto;
 }
 
-.cart-item-asset {
+.cart-asset-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40%;
     background-color: var(--color-grey);
+}
+
+.cart-item-asset {
     padding: 1rem;
-    max-width: 30%;
+    max-width: 45%;
 }
 
 .cart-item-details {
@@ -131,8 +138,21 @@
         margin: 1rem;
     }
 
+    .cart-asset-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 40%;
+        background-color: var(--color-grey);
+    } 
+
     .cart-item-asset {
-        max-width: 30%;
+        height: max-content;
+        max-width: 65%;
+    }
+
+    .cart-item-info p {
+        margin: 0.5rem;
     }
 
     .item-name {

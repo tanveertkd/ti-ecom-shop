@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import { WishlistItem } from "../../components/Wishlist/WishlistItem";
 import { useWishlist } from "../../contexts";
 import './wishlist.css';
@@ -13,6 +14,7 @@ const Wishlist = () => {
 
             <div className="wishlist-container">
                 <WishlistItem />  
+                <Toaster />
             </div>          
         
         </div>

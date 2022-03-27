@@ -15,11 +15,14 @@ const CartItem = () => {
                     return (
                         <div className="cart-items" key={_id}>
                             <div className="cart-item-card">
+                                <div className="cart-asset-container">
                                 <img
                                     src={asset}
                                     alt="cart item asset"
                                     className="cart-item-asset"
                                 />
+                                </div>
+                                
                                 <div className="cart-item-details">
                                     <div className="cart-item-info">
                                         <p className="item-name">{title}</p>
@@ -50,7 +53,7 @@ const CartItem = () => {
                                     <div className="item-buttons">
                                         <button
                                             className="item-card-btn item-btn-cart"
-                                            onClick={() => handleDelete(_id)}
+                                            onClick={() => handleDelete(_id, title)}
                                         >
                                             Remove From Cart
                                         </button>
@@ -58,7 +61,7 @@ const CartItem = () => {
                                             className="item-card-btn item-btn-wishlist"
                                             onClick={() => {
                                                 addToWishlistHandler(item);
-                                                handleDelete(_id);
+                                                handleDelete(_id, title);
                                             }}
                                         >
                                             Move to Wishlist

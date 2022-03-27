@@ -4,6 +4,8 @@ import { Filter } from '../../components/Filter/Filter';
 import { ProductItem } from '../../components/ProductItem/ProductItem';
 import { useProducts } from '../../contexts';
 
+import { Toaster } from 'react-hot-toast';
+
 import {
     getSortedProducts,
     getProductCategory,
@@ -67,6 +69,7 @@ const ProductListing = () => {
                 </div>
                 
             </div>
+            <Toaster />
         </div>
     );
 };

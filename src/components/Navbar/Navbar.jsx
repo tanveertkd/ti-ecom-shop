@@ -62,13 +62,13 @@ const Navbar = () => {
                     <li className="nav-main-li">
                         <Link to="/cart" className="nav-main-item badge">
                             <i className="fa-solid fa-cart-shopping nav-right-icn"></i>
-                            {itemsInCart > 0 && <span className="badge-info">{itemsInCart}</span>}
+                            { (auth && itemsInCart > 0) && <span className="badge-info">{itemsInCart}</span>}
                         </Link>
                     </li>
                     <li className="nav-main-li">
                         <Link to="/wishlist" className="nav-main-item badge">
                             <i className="fa-regular fa-heart nav-right-icn"></i>
-                            {itemsInWishlist > 0 && (
+                            { (auth && itemsInWishlist > 0) && (
                                 <span className="badge-info">{itemsInWishlist}</span>
                             )}
                         </Link>

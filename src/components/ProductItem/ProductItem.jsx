@@ -6,7 +6,7 @@ import './product-item.css';
 
 const ProductItem = ({ product }) => {
     const { auth } = useAuth();
-    const { cartItems, addToCartHandler, updateHandler } = useCart();
+    const { cartItems, addToCartHandler } = useCart();
     const { wishlistItems, addToWishlistHandler, removeFromWishlistHandler } = useWishlist();
     const navigate = useNavigate();
 
@@ -26,9 +26,11 @@ const ProductItem = ({ product }) => {
                                 : 'far fa-regular fa-heart product-fav-icn fav-active'
                         }
                         onClick={
-                            !checkWishlist
-                                ? () => addToWishlistHandler(product)
-                                : () => removeFromWishlistHandler(_id)
+                            auth
+                                ? !checkWishlist
+                                    ? () => addToWishlistHandler(product)
+                                    : () => removeFromWishlistHandler(_id)
+                                : () => navigate('/login')
                         }
                     ></i>
                     <div className="product-asset-container">
@@ -44,17 +46,18 @@ const ProductItem = ({ product }) => {
                         <p className="product-item-price">{discount}% off!</p>
                     </div>
                 </div>
+
                 <button
                     className="product-item-cta"
                     onClick={
                         auth
                             ? checkCart
-                                ? () => updateHandler(product, 'increment')
+                                ? () => navigate('/cart')
                                 : () => addToCartHandler(product)
                             : () => navigate('/login')
                     }
                 >
-                    Add To Cart
+                    {auth && !checkCart ? 'Add To Cart' : 'Go To Cart'}
                 </button>
             </div>
         </div>

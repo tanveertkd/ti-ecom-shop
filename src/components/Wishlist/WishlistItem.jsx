@@ -16,7 +16,7 @@ const WishlistItem = () => {
                             <div className="card-top-half">
                                 <i
                                     className="fas fa-regular fa-trash product-fav-icn fav-active"
-                                    onClick={() => removeFromWishlistHandler(_id)}
+                                    onClick={() => removeFromWishlistHandler(_id, title)}
                                 ></i>
                                 <div className="product-asset-container">
                                     <img

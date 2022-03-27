@@ -2,6 +2,8 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { addItemToWishlist, getWishlistItems, removeFromWishlist } from '../services';
 import { useAuth } from './auth-context';
 
+import toast from 'react-hot-toast';
+
 const WishlistContext = createContext();
 
 const WishlistProvider = ({ children }) => {
@@ -18,6 +20,8 @@ const WishlistProvider = ({ children }) => {
                         ...existingItems,
                         items: response.data.wishlist,
                     }));
+
+                    (() => toast.success(`${product.title} has been added to your wishlist!`))();
                 } else {
                     setWishlistItems((existingItems) => ({
                         ...existingItems,
@@ -25,12 +29,13 @@ const WishlistProvider = ({ children }) => {
                     }));
                 }
             } catch (error) {
+                (() => toast.error(`${product.title} could not be added to your cart!`))();
                 throw new Error("Couldn't add to wishlist.", error);
             }
         }
     };
 
-    const removeFromWishlistHandler = async (id) => {
+    const removeFromWishlistHandler = async (id, title) => {
         try {
             const response = await removeFromWishlist(AUTH_TOKEN, id);
             if (response.status === 200) {
@@ -38,8 +43,11 @@ const WishlistProvider = ({ children }) => {
                     ...existingItems,
                     items: response.data.wishlist,
                 }));
+
+                (() => toast.success(`${title} removed your wishlist.`))();
             }
         } catch (error) {
+            (() => toast.error(`${title} count not be removed from your wishlist.`))();
             throw new Error("Couldn't delete item.", error);
         }
     };
