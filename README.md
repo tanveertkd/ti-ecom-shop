@@ -16,7 +16,7 @@ TI Ecommerce Store is an ecommerce store geared towards providing martial arts a
 
 ## Screenshots
 Below are a few screenshots of the various screens.  
-![products](https://raw.githubusercontent.com/tanveertkd/ti-ecom-shop/documentation/README/1.png)  
-![products-res](https://raw.githubusercontent.com/tanveertkd/ti-ecom-shop/documentation/README/1-res.png)  
-![cart](https://raw.githubusercontent.com/tanveertkd/ti-ecom-shop/documentation/README/2-res.png)  
-![cart-res](https://raw.githubusercontent.com/tanveertkd/ti-ecom-shop/documentation/README/2.png)  
+![products](https://raw.githubusercontent.com/tanveertkd/ti-ecom-shop/documentation/README/1.prod.png)  
+![products-res](https://raw.githubusercontent.com/tanveertkd/ti-ecom-shop/documentation/README/1.prod-res.png)  
+![cart](https://raw.githubusercontent.com/tanveertkd/ti-ecom-shop/documentation/README/2.cart.png)  
+![cart-res](https://raw.githubusercontent.com/tanveertkd/ti-ecom-shop/documentation/README/2.cart-res.png)  
