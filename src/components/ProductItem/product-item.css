@@ -58,4 +58,5 @@
     background-color: var(--color-idle);
     border-bottom-right-radius: 0.4rem;
     border-bottom-left-radius: 0.4rem;
+    color: var(--color-grey);
 }

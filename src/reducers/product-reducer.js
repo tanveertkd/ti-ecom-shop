@@ -87,6 +87,13 @@ const productReducer = (state, action) => {
                     excludeOutOfStock: false,
                 }
             }
+
+        case 'SINGLE_PRODUCT':
+            return {
+                ...state,
+                singleProduct: action.payload
+            }
+        
         default:
             return state;
     }

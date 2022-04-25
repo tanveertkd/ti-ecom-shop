@@ -20,6 +20,10 @@
     width: fit-content;
 }
 
+.card-btn-buy {
+    color: var(--color-grey);
+}
+
 /* Media */
 
 @media screen and (max-width: 1024px) {

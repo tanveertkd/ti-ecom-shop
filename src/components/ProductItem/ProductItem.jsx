@@ -22,10 +22,10 @@ const ProductItem = ({ product }) => {
                     <i
                         className={
                             auth
-                            ? checkWishlist
-                                ? 'fas fa-regular fa-heart product-fav-icn fav-active'
+                                ? checkWishlist
+                                    ? 'fas fa-regular fa-heart product-fav-icn fav-active'
+                                    : 'far fa-regular fa-heart product-fav-icn fav-active'
                                 : 'far fa-regular fa-heart product-fav-icn fav-active'
-                            : 'far fa-regular fa-heart product-fav-icn fav-active'
                         }
                         onClick={
                             auth
@@ -35,11 +35,17 @@ const ProductItem = ({ product }) => {
                                 : () => navigate('/login')
                         }
                     ></i>
-                    <div className="product-asset-container">
+                    <div
+                        className="product-asset-container"
+                        onClick={() => navigate(`/product/${product._id}`)}
+                    >
                         <img src={asset} alt="product body asset" className="product-body-asset" />
                     </div>
 
-                    <div className="card-top-half-text">
+                    <div
+                        className="card-top-half-text"
+                        onClick={() => navigate(`/product/${product._id}`)}
+                    >
                         <p className="product-item-title">{title}</p>
                         <p className="product-item-price">
                             Rs {(price - (price * discount) / 100).toFixed(2)}{' '}
