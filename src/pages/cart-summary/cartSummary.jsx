@@ -5,8 +5,9 @@ const CartSummary = () => {
     const { cartItems } = useCart();
 
     return (
-        <div>
-            <h2>Order Summary [WIP]</h2>
+        <div className='summary-container'>
+            <h2>Order Summary</h2>
+
             {cartItems?.items.map((item) => (
                 <div className="cart-items" key={item?._id}>
                     <div className="cart-item-card cart-summary-items">

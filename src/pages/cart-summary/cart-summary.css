@@ -1,4 +1,18 @@
+.summary-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .cart-summary-items {
-    width: 25rem;
-    margin: 0.5rem auto;
+    width: 50rem;
+    margin: 0.5rem;
+}
+
+/* Media */
+@media screen and (max-width: 768px) {
+    .cart-summary-items {
+        width: fit-content;
+        margin: 0.5rem;
+    }
 }
