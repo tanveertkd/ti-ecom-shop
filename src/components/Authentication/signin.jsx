@@ -79,8 +79,8 @@ const SignIn = () => {
                             type="submit"
                             onClick={() =>
                                 setUserInput({
-                                    email: 'adarshbalika@gmail.com',
-                                    password: 'adarshbalika',
+                                    email: 'tanveer@gmail.com',
+                                    password: 'roc81234',
                                 })
                             }
                         >
