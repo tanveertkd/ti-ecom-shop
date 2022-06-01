@@ -15,12 +15,12 @@ const SingleProduct = () => {
     const { cartItems, addToCartHandler } = useCart();
     const { wishlistItems, addToWishlistHandler, removeFromWishlistHandler } = useWishlist();
 
-    useEffect(() => getProductByIdHandler(productId), []);
+    useEffect(() => {
+        getProductByIdHandler(productId);
+    }, []);
 
-    const checkWishlist = wishlistItems.items.find((item) => item._id === singleProduct?._id);
-    const checkCart = cartItems.items.find((item) => item._id === singleProduct?._id);
-    
-    // const { _id, asset, title, rating, price, discount } = singleProduct.product;
+    const checkWishlist = wishlistItems.items.find((item) => item._id === singleProduct?.product?._id);
+    const checkCart = cartItems.items.find((item) => item._id === singleProduct?.product?._id);
 
     return (
         <div class="product-item-body">
