@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useCart } from '../../contexts';
 import './CartSummary.css';
 
@@ -41,7 +42,7 @@ const CartSummary = () => {
             <div class="cart-summary-savings">You will save Rs {discountedPrice} on this order.</div>
 
             <div class="item-buttons">
-                <button class="item-card-btn summary-btn">Place Order</button>
+                <Link to="/cartsummary" class="item-card-btn summary-btn">Place Order</Link>
             </div>
         </div>
     );

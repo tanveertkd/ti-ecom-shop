@@ -48,7 +48,7 @@ const ProductItem = ({ product }) => {
                     >
                         <p className="product-item-title">{title}</p>
                         <p className="product-item-price">
-                            Rs {(price - (price * discount) / 100).toFixed(2)}{' '}
+                            Rs {(price - ((price * discount) / 100)).toFixed(2)}{' '}
                             <strike>{price}</strike>{' '}
                         </p>
                         <p className="product-item-price">{discount}% off!</p>

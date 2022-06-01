@@ -17,6 +17,7 @@ import { SingleProduct } from './pages/single-product/SingleProduct';
 //Mockman
 import Mockman from 'mockman-js';
 import { ProtectedRoutes } from './routes/ProtectedRoutes';
+import { CartSummary } from './pages/cart-summary/cartSummary';
 
 function App() {
     return (
@@ -38,6 +39,7 @@ function App() {
                     {/* Protected Routes */}
                     <Route path="/" element={<ProtectedRoutes />}>
                         <Route path="/cart" element={<Cart />} />
+                        <Route path='/cartsummary' element={<CartSummary />} />
                     </Route>
                     <Route path="/" element={<ProtectedRoutes />}>
                         <Route path="/wishlist" element={<Wishlist />} />

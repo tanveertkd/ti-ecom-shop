@@ -8,7 +8,6 @@ const ProductProvider = ({children}) => {
 
     const getProductByIdHandler = async (productId) => {
         const response = await getProductById(productId);
-        console.log(response);
         dispatch({type: 'SINGLE_PRODUCT', payload: response.data});
     }
 
@@ -25,7 +24,8 @@ const ProductProvider = ({children}) => {
             priceRangeValue: 5000,
             excludeOutOfStock: false,
         },
-        singleProduct: []
+        singleProduct: [],
+        searchedProduct: ''
     });
 
     return(
