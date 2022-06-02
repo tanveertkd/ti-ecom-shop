@@ -37,8 +37,8 @@
     font-size: 1.4rem;
 }
 
-.item-discount {
-    color: var(--color-hover-grey);
+.cart-item-info .item-discount {
+    color: var(--color-button-solid-success-hover);
 }
 
 .item-quantity {
@@ -122,7 +122,7 @@
     }
 
     .cart-item-asset {
-        max-width: 100%;
+        max-width: 40%;
     }
 
     .cart-item-details {

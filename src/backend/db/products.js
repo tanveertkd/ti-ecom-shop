@@ -17,7 +17,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Kendo Helmet - Bogu",
+    title: "Kendo Helmet",
     price: 2599,
     asset: "https://res.cloudinary.com/ddroedz3j/image/upload/v1654024485/ti_ecom/kendo_1_yglunc.png",
     category: "protective_eq",
@@ -80,7 +80,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Gloves-Pro Boxing",
+    title: "Gloves-Pro",
     price: 2599,
     asset: "https://res.cloudinary.com/ddroedz3j/image/upload/v1654024484/ti_ecom/gloves_k0qxnv.png",
     category: "protective_eq",

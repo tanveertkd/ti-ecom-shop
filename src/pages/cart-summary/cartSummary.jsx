@@ -9,18 +9,18 @@ const CartSummary = () => {
             <h2>Order Summary</h2>
 
             {cartItems?.items.map((item) => (
-                <div className="cart-items" key={item?._id}>
-                    <div className="cart-item-card cart-summary-items">
-                        <div className="cart-asset-container">
+                <div className="summary-items" key={item?._id}>
+                    <div className="cart-summary-card">
+                        <div className="summary-asset-container">
                             <img
                                 src={item?.asset}
-                                alt="cart item asset"
-                                className="cart-item-asset"
+                                alt="summary item asset"
+                                className="summary-item-asset"
                             />
                         </div>
 
-                        <div className="cart-item-details">
-                            <div className="cart-item-info">
+                        <div className="summary-item-details">
+                            <div className="summary-item-info">
                                 <p className="item-name">{item?.title}</p>
                                 <p className="item-price">
                                     Rs{' '}
