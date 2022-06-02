@@ -125,7 +125,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Punching Bag - Heavy",
+    title: "Kick Bag",
     price: 4999,
     asset: "https://res.cloudinary.com/ddroedz3j/image/upload/v1654024484/ti_ecom/punching-bag_gilhtx.png",
     category: "training_eq",
@@ -171,7 +171,7 @@ export const products = [
   {
     _id: uuid(),
     title: "Chest Guard",
-    price: 4999,
+    price: 2499,
     asset: "https://res.cloudinary.com/ddroedz3j/image/upload/v1654024485/ti_ecom/kendo_pgooiu.png",
     category: "protective_eq",
     rating: 3,
@@ -179,12 +179,12 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Training Ring - Multi-discipline",
+    title: "Training Ring",
     price: 4999,
     asset: "https://res.cloudinary.com/ddroedz3j/image/upload/v1654024484/ti_ecom/boxing-ring_gw0v5a.png",
     category: "training_eq",
     rating: 4,
-    discount: 2
+    discount: 15
   },
   {
     _id: uuid(),

@@ -19,7 +19,7 @@ import './product-listing.css';
 const ProductListing = () => {
     const { state, dispatch } = useProducts();
     const { sortBy, category, rating, priceRangeValue } = state.filters;
-
+    
     useEffect(() => {
         (async () => {
             try {

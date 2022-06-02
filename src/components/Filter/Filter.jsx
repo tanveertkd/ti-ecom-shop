@@ -30,14 +30,14 @@ const Filter = () => {
 
                 <li className="sidebar-item">
                     <div className="sidebar-item-sort">
-                        <label for="sidebar-radio">
+                        <label htmlFor="sidebar-radio">
                             <input
                                 type="radio"
                                 id="sidebar-radio"
                                 name="sort-radio"
                                 value="low_to_high"
                                 checked={sortBy === 'LOW_TO_HIGH'}
-                                onClick={() => dispatch({ type: 'LOW_TO_HIGH' })}
+                                onChange={() => dispatch({ type: 'LOW_TO_HIGH' })}
                             />{' '}
                             Price - Low to High
                         </label>
@@ -46,14 +46,14 @@ const Filter = () => {
 
                 <li className="sidebar-item">
                     <div className="sidebar-item-sort">
-                        <label for="sidebar-radio-hl">
+                        <label htmlFor="sidebar-radio-hl">
                             <input
                                 type="radio"
                                 id="sidebar-radio-hl"
                                 name="sort-radio"
                                 value="high_to_low"
                                 checked={sortBy === 'HIGH_TO_LOW'}
-                                onClick={() => dispatch({ type: 'HIGH_TO_LOW' })}
+                                onChange={() => dispatch({ type: 'HIGH_TO_LOW' })}
                             />{' '}
                             Price - High to Low
                         </label>
@@ -68,7 +68,7 @@ const Filter = () => {
                 <li className="sidebar-header">Category</li>
                 <li className="sidebar-item">
                     <div className="sidebar-item-checkbox">
-                        <label for="protective-eq">
+                        <label htmlFor="protective-eq">
                             <input
                                 type="checkbox"
                                 id="protective-eq"
@@ -84,7 +84,7 @@ const Filter = () => {
                 </li>
                 <li className="sidebar-item">
                     <div className="sidebar-item-checkbox">
-                        <label for="training_eq">
+                        <label htmlFor="training_eq">
                             <input
                                 type="checkbox"
                                 id="training_eq"
@@ -99,7 +99,7 @@ const Filter = () => {
                 </li>
                 <li className="sidebar-item">
                     <div className="sidebar-item-checkbox">
-                        <label for="training_ap">
+                        <label htmlFor="training_ap">
                             <input
                                 type="checkbox"
                                 id="training_ap"
@@ -122,14 +122,14 @@ const Filter = () => {
 
                 <li className="sidebar-item">
                     <div className="sidebar-item-rating">
-                        <label for="sidebar-radio-4">
+                        <label htmlFor="sidebar-radio-4">
                             <input
                                 type="radio"
                                 id="sidebar-radio-4"
                                 name="rating-radio"
                                 value="4"
                                 checked={rating === "4"}
-                                onClick={(e) =>
+                                onChange={(e) =>
                                     dispatch({ type: 'RATING', payload: e.target.value })
                                 }
                             />
@@ -139,14 +139,14 @@ const Filter = () => {
                 </li>
                 <li className="sidebar-item">
                     <div className="sidebar-item-rating">
-                        <label for="sidebar-radio-3">
+                        <label htmlFor="sidebar-radio-3">
                             <input
                                 type="radio"
                                 id="sidebar-radio-3"
                                 name="rating-radio"
                                 value="3"
                                 checked={rating === "3"}
-                                onClick={(e) =>
+                                onChange={(e) =>
                                     dispatch({ type: 'RATING', payload: e.target.value })
                                 }
                             />
@@ -156,14 +156,14 @@ const Filter = () => {
                 </li>
                 <li className="sidebar-item">
                     <div className="sidebar-item-rating">
-                        <label for="sidebar-radio-2">
+                        <label htmlFor="sidebar-radio-2">
                             <input
                                 type="radio"
                                 id="sidebar-radio-2"
                                 name="rating-radio"
                                 value="2"
                                 checked={rating === "2"}
-                                onClick={(e) =>
+                                onChange={(e) =>
                                     dispatch({ type: 'RATING', payload: e.target.value })
                                 }
                             />
@@ -173,14 +173,14 @@ const Filter = () => {
                 </li>
                 <li className="sidebar-item">
                     <div className="sidebar-item-rating">
-                        <label for="sidebar-radio-1">
+                        <label htmlFor="sidebar-radio-1">
                             <input
                                 type="radio"
                                 id="sidebar-radio-1"
                                 name="rating-radio"
                                 value="1"
                                 checked={rating === "1"}
-                                onClick={(e) =>
+                                onChange={(e) =>
                                     dispatch({ type: 'RATING', payload: e.target.value })
                                 }
                             />

@@ -21,6 +21,7 @@
 }
 
 .card-btn-buy {
+    cursor: pointer;
     color: var(--color-grey);
 }
 

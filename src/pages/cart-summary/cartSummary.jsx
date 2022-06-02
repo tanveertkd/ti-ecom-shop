@@ -8,7 +8,7 @@ const CartSummary = () => {
         <div className='summary-container'>
             <h2>Order Summary</h2>
 
-            {cartItems?.items.map((item) => (
+            {cartItems?.orderedItems.map((item) => (
                 <div className="summary-items" key={item?._id}>
                     <div className="cart-summary-card">
                         <div className="summary-asset-container">

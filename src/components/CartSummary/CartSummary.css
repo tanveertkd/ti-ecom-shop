@@ -42,6 +42,7 @@
 }
 
 .summary-btn:hover {
+    cursor: pointer;
     background-color: var(--color-alert-warning);
     font-weight: 600;
 }

@@ -4,7 +4,12 @@ import { useAuth } from './index';
 
 import toast from 'react-hot-toast';
 
-import { addItemToCart, deleteItemFromCart, updateCartItemQty } from '../services/cart-services';
+import {
+    addItemToCart,
+    clearCartService,
+    deleteItemFromCart,
+    updateCartItemQty,
+} from '../services/cart-services';
 
 const CartContext = createContext();
 
@@ -13,9 +18,9 @@ const CartProvider = ({ children }) => {
     const AUTH_TOKEN = localStorage.getItem('AUTH_TOKEN');
 
     const addToCartHandler = async (product) => {
-        const check = cartItems.items.find(item => item._id === product._id);
-        
-        if(!check){
+        const check = cartItems.items.find((item) => item._id === product._id);
+
+        if (!check) {
             try {
                 const response = await addItemToCart(AUTH_TOKEN, product);
                 if (response.status === 201) {
@@ -48,7 +53,7 @@ const CartProvider = ({ children }) => {
 
     // Update item quantity handler
     const updateHandler = async (product, type) => {
-        if(product.qty === 1 && type === "decrement"){
+        if (product.qty === 1 && type === 'decrement') {
             handleDelete(product._id);
             (() => toast.success(`Item removed from your cart.`))();
         } else {
@@ -66,18 +71,45 @@ const CartProvider = ({ children }) => {
     //Get item price after discount
     const getDiscountedPrice = (product) => {
         return product.reduce(
-            (accumulator, current) => ((accumulator += (current.price * current.discount) / 100) * current.qty),
+            (accumulator, current) =>
+                (accumulator += (current.price * current.discount) / 100) * current.qty,
             0,
         );
     };
 
     //Get total price of all items in cart
     const getCartTotalValue = (product) => {
-        return product.reduce((accumulator, current) => (accumulator += current.price*current.qty), 0);
+        return product.reduce(
+            (accumulator, current) => (accumulator += current.price * current.qty),
+            0,
+        );
+    };
+
+    const handleOrderedItems = async () => {
+        const response = await getCartItems(AUTH_TOKEN);
+        setCartItems((existingItems) => ({
+            ...existingItems,
+            orderedItems: response.data.cart
+        }))
+    }
+
+    const clearCart = async () => {
+        try {
+            const { status, data } = await clearCartService(AUTH_TOKEN);
+            if (status === 201) {
+                setCartItems((existingItems) => ({
+                    ...existingItems,
+                    items: data.cart,
+                }));
+            }
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     const [cartItems, setCartItems] = useState({
         items: [],
+        orderedItems: [],
         totalValue: 0,
         totalDiscount: 0,
     });
@@ -117,6 +149,8 @@ const CartProvider = ({ children }) => {
                 getCartTotalValue,
                 getDiscountedPrice,
                 updateHandler,
+                handleOrderedItems,
+                clearCart,
             }}
         >
             {children}
