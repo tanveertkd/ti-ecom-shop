@@ -1,9 +1,13 @@
-import { useCart, useWishlist } from '../../contexts';
+import { useNavigate } from 'react-router-dom';
+import { useAuth, useCart, useWishlist } from '../../contexts';
 import './WishlistItem.css';
 
 const WishlistItem = () => {
+    const { auth } = useAuth();
     const { wishlistItems, removeFromWishlistHandler } = useWishlist();
-    const { addToCartHandler } = useCart();
+    const { cartItems, addToCartHandler } = useCart();
+    const navigate = useNavigate();
+    const checkCart = (itemId) => cartItems.items.find((item) => item._id === itemId);
 
     return (
         <div className="product-body-cards wishlist-cards">
@@ -33,11 +37,23 @@ const WishlistItem = () => {
                                     </p>
                                 </div>
                             </div>
-                            <button
+                            {/* <button
                                 className="product-item-cta product-cta-active"
                                 onClick={() => addToCartHandler(item)}
                             >
                                 Add To Cart
+                            </button> */}
+                            <button
+                                className="product-item-cta"
+                                onClick={
+                                    auth
+                                        ? checkCart(_id)
+                                            ? () => navigate('/cart')
+                                            : () => addToCartHandler(item)
+                                        : () => navigate('/login')
+                                }
+                            >
+                                {auth && checkCart(_id) ? 'Go To Cart' : 'Add To Cart'}
                             </button>
                         </div>
                     );
