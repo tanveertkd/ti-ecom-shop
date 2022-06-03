@@ -11,6 +11,7 @@ import {
     getProductCategory,
     getProductRating,
     getPriceRange,
+    getSearchedProduct,
 } from '../../utils';
 
 import './product-listing.css';
@@ -18,7 +19,7 @@ import './product-listing.css';
 const ProductListing = () => {
     const { state, dispatch } = useProducts();
     const { sortBy, category, rating, priceRangeValue } = state.filters;
-
+    
     useEffect(() => {
         (async () => {
             try {
@@ -32,6 +33,10 @@ const ProductListing = () => {
         })();
     }, [dispatch]);
 
+    useEffect(() => {
+        dispatch({ type: 'SEARCH_PRODUCT', payload: '' });
+    }, [dispatch]);
+
     //Product List Filters
 
     const sorted = getSortedProducts(state.data, sortBy);
@@ -42,32 +47,42 @@ const ProductListing = () => {
 
     const productRatingFilter = getProductRating(priceRangeFilter, rating);
 
-    const [sidebarStatus, setSidebarStatus] = useState("filter-container");
+    const searchProductFilter = getSearchedProduct(productRatingFilter, state?.searchedProduct);
 
-    const toggleSidebar = () => setSidebarStatus(() => sidebarStatus === "filter-container" ? ".filter-container-active" : "filter-container");
+    const [sidebarStatus, setSidebarStatus] = useState('filter-container');
+
+    const toggleSidebar = () =>
+        setSidebarStatus(() =>
+            sidebarStatus === 'filter-container' ? '.filter-container-active' : 'filter-container',
+        );
 
     return (
         <div className="product-listing">
             <h2>Products</h2>
             <div className="product-listing-body">
-                <div className={ sidebarStatus }>
+                <div className={sidebarStatus}>
                     <Filter />
                 </div>
-                
+
                 <div className="secondary-container">
-                    <div class="sidebar-responsive" onClick={ () => toggleSidebar() }>
+                    <div class="sidebar-responsive" onClick={() => toggleSidebar()}>
                         <span>
                             Filters
                             <i class="fas fa-regular fa-filter filter-icn"></i>
                         </span>
                     </div>
                     <div className="product-card-container">
-                        {productRatingFilter?.map((product) => (
-                            <ProductItem product={product} key={product.id} />
-                        ))}
+                        {searchProductFilter?.length > 0 ? (
+                            searchProductFilter?.map((product) => (
+                                <ProductItem product={product} key={product.id} />
+                            ))
+                        ) : (
+                            <div>
+                                <h3>Couldn't find any products.</h3>
+                            </div>
+                        )}
                     </div>
                 </div>
-                
             </div>
             <Toaster />
         </div>

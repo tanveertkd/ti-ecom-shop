@@ -13,6 +13,8 @@ TI Ecommerce Store is an ecommerce store geared towards providing martial arts a
 2. Authentication
 3. Wishlist Management
 4. Cart Management
+5. Product search
+6. Payment Integration
 
 ## Screenshots
 Below are a few screenshots of the various screens.  

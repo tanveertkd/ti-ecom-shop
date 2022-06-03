@@ -12,10 +12,12 @@ import { Home } from './pages/home/home';
 import { ProductListing } from './pages/product-listing/product-listing';
 import { Cart } from './pages/cart/cart';
 import { Wishlist } from './pages/wishlist/wishlist';
+import { SingleProduct } from './pages/single-product/SingleProduct';
 
 //Mockman
 import Mockman from 'mockman-js';
 import { ProtectedRoutes } from './routes/ProtectedRoutes';
+import { CartSummary } from './pages/cart-summary/cartSummary';
 
 function App() {
     return (
@@ -32,10 +34,12 @@ function App() {
                     <Route path="login" element={<SignIn />} />
                     <Route path="signin" element={<SignIn />} />
                     <Route path="signup" element={<SignUp />} />
+                    <Route path="/product/:productId" element={<SingleProduct />} />
 
                     {/* Protected Routes */}
                     <Route path="/" element={<ProtectedRoutes />}>
                         <Route path="/cart" element={<Cart />} />
+                        <Route path='/cartsummary' element={<CartSummary />} />
                     </Route>
                     <Route path="/" element={<ProtectedRoutes />}>
                         <Route path="/wishlist" element={<Wishlist />} />

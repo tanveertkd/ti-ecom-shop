@@ -44,4 +44,14 @@ const updateCartItemQty = async (encodedToken, productId, type) => {
     );
 };
 
-export { getCartItems, addItemToCart, deleteItemFromCart,  updateCartItemQty };
+const clearCartService = async (encodedToken) => {
+    return await axios.post(
+        '/api/user/cart/clearCart', 
+        {}, 
+        { 
+            headers: { authorization: encodedToken } 
+        }
+    );
+};
+
+export { getCartItems, addItemToCart, deleteItemFromCart, updateCartItemQty, clearCartService };
