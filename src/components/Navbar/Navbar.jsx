@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth, useCart, useProducts, useWishlist } from '../../contexts';
 import { debounceUtil } from '../../utils';
 
@@ -14,6 +14,8 @@ const Navbar = () => {
     const itemsInCart = cartItems.items?.length;
     const itemsInWishlist = wishlistItems.items?.length;
 
+    const { pathname } = useLocation();
+
     return (
         <div>
             <nav className="nav-main">
@@ -26,31 +28,32 @@ const Navbar = () => {
                     </li>
                 </ul>
 
-                {/* {Nav middle} */}
-                <ul className="nav-main-middle nav-main-ul">
-                    <li className="nav-main-li">
-                        <label htmlFor="nav-main-search" className="nav-item-search">
-                            <i
-                                className="fa-solid fa-magnifying-glass nav-main-middle-icn"
-                                onClick={() => navigate('/products')}
-                            ></i>
-                            <input
-                                className="nav-item-search-input"
-                                type="text"
-                                placeholder="Looking for something?"
-                                name="nav-search"
-                                onChange={debounceUtil(
-                                    (e) =>
-                                        dispatch({
-                                            type: 'SEARCH_PRODUCT',
-                                            payload: e.target.value,
-                                        }),
-                                    400,
-                                )}
-                            />
-                        </label>
-                    </li>
-                </ul>
+                {pathname === '/products' && (
+                    <ul className="nav-main-middle nav-main-ul">
+                        <li className="nav-main-li">
+                            <label htmlFor="nav-main-search" className="nav-item-search">
+                                <i
+                                    className="fa-solid fa-magnifying-glass nav-main-middle-icn"
+                                    onClick={() => navigate('/products')}
+                                ></i>
+                                <input
+                                    className="nav-item-search-input"
+                                    type="text"
+                                    placeholder="Looking for something?"
+                                    name="nav-search"
+                                    onChange={debounceUtil(
+                                        (e) =>
+                                            dispatch({
+                                                type: 'SEARCH_PRODUCT',
+                                                payload: e.target.value,
+                                            }),
+                                        400,
+                                    )}
+                                />
+                            </label>
+                        </li>
+                    </ul>
+                )}
 
                 {/* Nav right */}
                 <ul className="nav-main-right nav-main-ul">
@@ -91,30 +94,33 @@ const Navbar = () => {
                     </li>
                 </ul>
             </nav>
-            <nav className="nav-mobile">
-                {/* {Nav middle mobile} */}
-                <ul className="nav-main-middle-mobile nav-main-ul">
-                    <li className="nav-main-li">
-                        <label htmlFor="nav-main-search" className="nav-item-search">
-                            <i className="fa-solid fa-magnifying-glass nav-main-middle-icn"></i>
-                            <input
-                                className="nav-item-search-input"
-                                type="text"
-                                placeholder="Looking for something?"
-                                name="nav-search"
-                                onChange={debounceUtil(
-                                    (e) =>
-                                        dispatch({
-                                            type: 'SEARCH_PRODUCT',
-                                            payload: e.target.value,
-                                        }),
-                                    400,
-                                )}
-                            />
-                        </label>
-                    </li>
-                </ul>
-            </nav>
+
+            {pathname === '/products' && (
+                <nav className="nav-mobile">
+                    {/* {Nav middle mobile} */}
+                    <ul className="nav-main-middle-mobile nav-main-ul">
+                        <li className="nav-main-li">
+                            <label htmlFor="nav-main-search" className="nav-item-search">
+                                <i className="fa-solid fa-magnifying-glass nav-main-middle-icn"></i>
+                                <input
+                                    className="nav-item-search-input"
+                                    type="text"
+                                    placeholder="Looking for something?"
+                                    name="nav-search"
+                                    onChange={debounceUtil(
+                                        (e) =>
+                                            dispatch({
+                                                type: 'SEARCH_PRODUCT',
+                                                payload: e.target.value,
+                                            }),
+                                        400,
+                                    )}
+                                />
+                            </label>
+                        </li>
+                    </ul>
+                </nav>
+            )}
         </div>
     );
 };
